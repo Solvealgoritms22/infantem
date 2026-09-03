@@ -1,0 +1,242 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-baloo);
+  --font-hand: var(--font-caveat);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* ── Paleta Infantem (extraída del logo real) ── */
+  --color-rosa: #f06292;
+  --color-rosa-fuerte: #e91e63;
+  --color-rosa-claro: #fce4ec;
+  --color-naranja: #f7941d;
+  --color-naranja-claro: #ffefd6;
+  --color-verde: #7cb342;
+  --color-verde-claro: #eaf3da;
+  --color-azul: #3fa9f5;
+  --color-azul-claro: #ddf0fc;
+  --color-amarillo: #ffc933;
+  --color-amarillo-claro: #fff4d3;
+  --color-tinta: #3e3a52;
+  --color-tinta-suave: #6b6584;
+  --color-crema: #fff9ef;
+  --color-papel: #fffdf7;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 1.25rem;
+  --background: #fff9ef;
+  --foreground: #3e3a52;
+  --card: #fffdf7;
+  --card-foreground: #3e3a52;
+  --primary: #f06292;
+  --primary-foreground: #ffffff;
+  --muted: #f6efe2;
+  --muted-foreground: #6b6584;
+  --accent: #ddf0fc;
+  --accent-foreground: #3e3a52;
+  --border: #eadfc9;
+  --input: #eadfc9;
+  --ring: #f06292;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+  }
+  body {
+    @apply bg-crema text-tinta font-sans antialiased;
+    /* grano de papel sutil, como cartulina de manualidades */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.24 0 0 0 0 0.22 0 0 0 0 0.32 0 0 0 0.035 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  ::selection {
+    background: #ffd9e5;
+    color: #3e3a52;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Utilidades artesanales del sitio
+   ───────────────────────────────────────────── */
+
+/* Subrayado de crayón (SVG tosco a propósito) */
+.crayon-sub {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+  white-space: nowrap;
+}
+.crayon-sub::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: 0.02em;
+  height: 0.32em;
+  z-index: -1;
+  background-color: var(--crayon-color, #ffc933);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 22' preserveAspectRatio='none'%3E%3Cpath d='M4 14 C 30 8, 48 17, 74 12 S 128 5, 152 12 S 200 17, 216 9 L 218 15 C 196 21, 168 13, 146 17 S 96 22, 70 17 S 22 12, 2 19 Z' fill='black'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 22' preserveAspectRatio='none'%3E%3Cpath d='M4 14 C 30 8, 48 17, 74 12 S 128 5, 152 12 S 200 17, 216 9 L 218 15 C 196 21, 168 13, 146 17 S 96 22, 70 17 S 22 12, 2 19 Z' fill='black'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+/* Borde de pespunte (costura a mano) */
+.pespunte {
+  border: 2px dashed var(--pespunte-color, #eadfc9);
+}
+
+/* Tarjeta polaroid */
+.polaroid {
+  @apply bg-white p-3 pb-4 rounded-lg;
+  box-shadow: 0 1px 2px rgba(62, 58, 82, 0.08), 0 12px 28px -8px rgba(62, 58, 82, 0.18);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.03) !important;
+  box-shadow: 0 2px 4px rgba(62, 58, 82, 0.08), 0 20px 40px -8px rgba(62, 58, 82, 0.26);
+  z-index: 10;
+}
+
+/* Cinta washi para pegar polaroids */
+.washi {
+  position: absolute;
+  width: 92px;
+  height: 26px;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 201, 51, 0.75) 0 8px,
+    rgba(255, 216, 122, 0.75) 8px 16px
+  );
+  opacity: 0.9;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-4deg);
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(62, 58, 82, 0.12);
+}
+
+/* Burbuja / blob orgánico */
+.blob {
+  border-radius: 58% 42% 55% 45% / 52% 57% 43% 48%;
+}
+
+/* Animaciones */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.anim-marquee {
+  animation: marquee 32s linear infinite;
+}
+.anim-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50%      { transform: translateY(-12px) rotate(var(--rot, 0deg)); }
+}
+.anim-flotar {
+  animation: flotar 5s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes girar-lento {
+  to { transform: rotate(360deg); }
+}
+.anim-girar {
+  animation: girar-lento 18s linear infinite;
+}
+
+@keyframes mecer {
+  0%, 100% { transform: rotate(-3deg); }
+  50%      { transform: rotate(3deg); }
+}
+.group:hover .anim-mecer-hijos > * {
+  animation: mecer 0.5s ease-in-out;
+}
+.anim-mecer-hijos > *:nth-child(2) { animation-delay: 0.08s; }
+.anim-mecer-hijos > *:nth-child(3) { animation-delay: 0.16s; }
+.anim-mecer-hijos > *:nth-child(4) { animation-delay: 0.24s; }
+
+@keyframes latido {
+  0%, 100% { transform: scale(1); }
+  10%      { transform: scale(1.12); }
+  20%      { transform: scale(1); }
+  30%      { transform: scale(1.1); }
+  40%      { transform: scale(1); }
+}
+.anim-latido {
+  animation: latido 2.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-marquee, .anim-flotar, .anim-girar, .anim-latido {
+    animation: none;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* Link con subrayado animado a mano */
+.link-mano {
+  position: relative;
+}
+.link-mano::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -3px;
+  height: 2.5px;
+  border-radius: 99px;
+  background: currentColor;
+  transition: right 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.link-mano:hover::after,
+.link-mano:focus-visible::after {
+  right: 0;
+}
+
+/* Sombra "sticker" despegada */
+.sombra-sticker {
+  box-shadow: 0 2px 0 rgba(62, 58, 82, 0.9), 0 6px 18px -4px rgba(62, 58, 82, 0.3);
+}
+
+/* Scrollbar discreto */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f6efe2; }
+::-webkit-scrollbar-thumb {
+  background: #e0d4bc;
+  border-radius: 99px;
+  border: 2px solid #f6efe2;
+}
+::-webkit-scrollbar-thumb:hover { background: #d3c4a6; }
