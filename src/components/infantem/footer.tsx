@@ -54,17 +54,24 @@ export function Footer() {
               Estamos para ti
             </h3>
             <ul className="space-y-3">
-              {sitio.telefonos.map((t) => (
-                <li key={t.tel}>
+              <li>
+                <div className="inline-flex flex-wrap items-center gap-2 font-bold text-crema/85">
+                  <Phone className="w-4 h-4 shrink-0" aria-hidden="true" />
                   <a
-                    href={`tel:${t.tel}`}
-                    className="inline-flex items-center gap-2.5 font-bold text-crema/85 hover:text-amarillo transition-colors"
+                    href={`tel:${sitio.telefonos[0].tel}`}
+                    className="hover:text-amarillo transition-colors"
                   >
-                    <Phone className="w-4 h-4" aria-hidden="true" />
-                    {t.display}
+                    {sitio.telefonos[0].display}
                   </a>
-                </li>
-              ))}
+                  <span className="text-crema/40 font-normal">|</span>
+                  <a
+                    href={`tel:${sitio.telefonos[1].tel}`}
+                    className="hover:text-amarillo transition-colors"
+                  >
+                    {sitio.telefonos[1].display}
+                  </a>
+                </div>
+              </li>
               <li>
                 <a
                   href={sitio.whatsapp}

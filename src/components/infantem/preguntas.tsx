@@ -50,6 +50,10 @@ export function Preguntas() {
               <a href={`tel:${sitio.telefonos[0].tel}`} className="text-verde font-extrabold link-mano">
                 {sitio.telefonos[0].display}
               </a>{" "}
+              |{" "}
+              <a href={`tel:${sitio.telefonos[1].tel}`} className="text-verde font-extrabold link-mano">
+                {sitio.telefonos[1].display}
+              </a>{" "}
               y te respondemos de frente.
             </p>
           </div>

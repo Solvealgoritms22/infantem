@@ -16,6 +16,8 @@ export const sitio = {
   whatsapp: "https://wa.me/18299789988?text=%C2%A1Hola%20Infantem!%20Quiero%20informaci%C3%B3n%20sobre%20sus%20programas%20%F0%9F%92%9B",
   pais: "República Dominicana",
   horario: "Lunes a viernes · 7:00 a.m. – 5:00 p.m.",
+  /** Foto principal dentro del marco de libreta rasgada del Hero (cámbiala por cualquier foto en /public/img/...) */
+  heroFoto: "/img/hero-play.jpg",
 };
 
 export const enlacesNav = [
@@ -42,7 +44,6 @@ export const momentos = [
 export interface Programa {
   id: string;
   nombre: string;
-  rango: string;
   descripcion: string;
   detalles: string[];
   imagen: string;
@@ -55,7 +56,6 @@ export const programas: Programa[] = [
   {
     id: "cuidado",
     nombre: "Centro de Cuidado Infantil",
-    rango: "Desde los 6 meses",
     descripcion:
       "Un espacio seguro y abrazador donde los más peques exploran el mundo con todos los sentidos, mientras mamá y papá trabajan tranquilos.",
     detalles: ["Atención personalizada", "Rutinas de sueño y alimentación", "Estimulación temprana"],
@@ -67,7 +67,6 @@ export const programas: Programa[] = [
   {
     id: "inicial",
     nombre: "Educación Inicial",
-    rango: "1 a 5 años",
     descripcion:
       "El preescolar como debe ser: aprendiendo letras, números y colores a pura canción, cuento y pintura. Preparación real para el siguiente paso.",
     detalles: ["Proyectos por áreas", "Lectoescritura inicial", "Motricidad fina y gruesa"],
@@ -79,7 +78,6 @@ export const programas: Programa[] = [
   {
     id: "primaria",
     nombre: "1er Grado de Primaria",
-    rango: "6 años",
     descripcion:
       "El gran salto a la primaria de la mano de maestras que conocen a cada peque por su nombre, con grupos reducidos y mucha confianza.",
     detalles: ["Grupos reducidos", "Lectura y matemáticas", "Acompañamiento cercano"],
@@ -91,7 +89,6 @@ export const programas: Programa[] = [
   {
     id: "campamentos",
     nombre: "Campamentos de Verano y Navidad",
-    rango: "Vacaciones",
     descripcion:
       "Cuando termina el año escolar la diversión no para: excursiones, juegos con agua, ciencia loca y días temáticos que los peques no olvidan.",
     detalles: ["Semanas temáticas", "Juegos con agua", "Manualidades y meriendas"],

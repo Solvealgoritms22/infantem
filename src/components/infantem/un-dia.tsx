@@ -1,14 +1,7 @@
 import { Revelar, TituloSeccion } from "./revelar";
 import { diaTipico } from "@/lib/contenido";
-import { Sol } from "./doodles";
+import { DoodleSol } from "./doodles";
 
-const puntoColor: Record<string, string> = {
-  amarillo: "bg-amarillo",
-  azul: "bg-azul",
-  verde: "bg-verde",
-  rosa: "bg-rosa",
-  naranja: "bg-naranja",
-};
 
 /**
  * Línea de tiempo de un día cualquiera en Infantem.
@@ -18,7 +11,7 @@ const puntoColor: Record<string, string> = {
 export function UnDia() {
   return (
     <section id="un-dia" className="relative py-20 md:py-28 bg-amarillo-claro overflow-hidden">
-      <Sol className="absolute top-10 right-[8%] w-14 text-naranja/60 anim-flotar hidden lg:block" />
+      <DoodleSol className="absolute top-10 right-[8%] w-16 anim-flotar hidden lg:block drop-shadow-sm" />
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <TituloSeccion
           nota="hora por hora, sin secretos"
@@ -45,7 +38,7 @@ export function UnDia() {
                   {/* punto pintado sobre la línea */}
                   <span
                     aria-hidden="true"
-                    className={`absolute left-[19px] md:left-1/2 md:-translate-x-1/2 top-7 w-[15px] h-[15px] rounded-full ${puntoColor[m.color]} ring-4 ring-white shadow-sm`}
+                    className="absolute left-[19px] md:left-1/2 md:-translate-x-1/2 top-7 w-[15px] h-[15px] rounded-full bg-gray-400 ring-4 ring-white shadow-sm"
                   />
                   <Revelar
                     retraso={0.05 * i}

@@ -47,7 +47,7 @@ export function Programas() {
             colorCrayon="#ddf0fc"
             alineado="izquierda"
           />
-          <Revelar retraso={0.1}>
+          <Revelar retraso={0.1} className="pb-6">
             <a
               href={sitio.whatsapp}
               target="_blank"
@@ -78,9 +78,6 @@ export function Programas() {
                         sizes="(max-width: 768px) 92vw, 46vw"
                         className="object-cover group-hover:scale-[1.04] transition-transform duration-500"
                       />
-                      <span className="absolute top-3 left-3 inline-flex items-center rounded-full bg-white/95 font-display font-bold text-xs px-3.5 py-1.5 shadow-sm">
-                        {p.rango}
-                      </span>
                     </figure>
 
                     <div className={`px-1.5 pb-2 ${invertido ? "md:order-1" : ""}`}>
@@ -109,7 +106,6 @@ export function Programas() {
 
         <Revelar retraso={0.15}>
           <p className="text-center mt-12 text-sm font-semibold text-tinta-suave flex items-center justify-center gap-2">
-            <Destello className="w-4 h-4 text-amarillo" />
             ¿No sabes en qué grupo encaja tu peque? Escríbenos y lo resolvemos juntos en dos mensajes.
           </p>
         </Revelar>

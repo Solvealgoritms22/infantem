@@ -53,8 +53,8 @@ export function Galeria() {
         <Revelar retraso={0.1}>
           <div className="text-center mt-14">
             <p className="text-sm font-semibold text-tinta-suave max-w-md mx-auto">
-              Estos días están ilustrados con cariño, pero los momentos reales —los que sudan, ríen y se
-              manchan— viven en nuestro Instagram.
+              Estos días están ilustrados con cariño, pero los momentos reales, los que sudan, ríen y se
+              manchan, viven en nuestro Instagram.
             </p>
             <a
               href={sitio.instagram}
@@ -64,7 +64,6 @@ export function Galeria() {
             >
               <IconoInstagram className="w-5 h-5" />
               Ver fotos reales en Instagram
-              <Destello className="w-4 h-4 text-amarillo-claro" />
             </a>
           </div>
         </Revelar>

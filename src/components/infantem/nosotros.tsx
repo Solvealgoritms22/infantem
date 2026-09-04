@@ -1,31 +1,29 @@
+import Image from "next/image";
 import { Revelar, TituloSeccion } from "./revelar";
-import { Corazon, Destello, Sol, Garabato, Mancha } from "./doodles";
+import { Garabato, Mancha } from "./doodles";
 import { IconoInstagram } from "./iconos";
 import { sitio } from "@/lib/contenido";
 
 const promesas = [
   {
-    icono: <Corazon className="w-7 h-7" strokeWidth={3} />,
+    imagen: "/img/icon-cuidado-clean.png",
     titulo: "Cuidado de verdad",
     texto:
       "Grupos pequeños, protocolos claros y comunicación diaria contigo. Aquí cada peque es nombre, no número: sabemos su alergia, su siesta y su canción favorita.",
-    color: "bg-rosa-claro text-rosa-fuerte",
     rot: "-rotate-2",
   },
   {
-    icono: <Destello className="w-7 h-7" strokeWidth={3} />,
+    imagen: "/img/icon-juego-clean.png",
     titulo: "Aprender jugando",
     texto:
       "La mejor manera de aprender a esta edad es jugando. Proyectos por áreas, ciencia divertida, música y cuentos que convierten cada día en un descubrimiento.",
-    color: "bg-azul-claro text-azul",
     rot: "rotate-1",
   },
   {
-    icono: <Sol className="w-7 h-7" strokeWidth={3} />,
+    imagen: "/img/icon-puertas-clean.png",
     titulo: "Puertas abiertas",
     texto:
       "Los papás son parte de Infantem: celebramos juntos el Día de la Familia, las madres y los padres, y siempre puedes venir a vernos sin cita previa.",
-    color: "bg-amarillo-claro text-naranja",
     rot: "rotate-2",
   },
 ];
@@ -97,8 +95,14 @@ export function Nosotros() {
                 <article
                   className={`relative bg-white rounded-2xl p-6 shadow-[0_14px_34px_-16px_rgba(62,58,82,0.35)] ${p.rot} hover:rotate-0 transition-transform duration-300 border border-[#f1e8d8]`}
                 >
-                  <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl ${p.color} mb-4`}>
-                    {p.icono}
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 mb-3 -ml-1">
+                    <Image
+                      src={p.imagen}
+                      alt={p.titulo}
+                      fill
+                      sizes="(max-width: 768px) 80px, 96px"
+                      className="object-contain"
+                    />
                   </div>
                   <h3 className="font-display font-bold text-xl mb-2">{p.titulo}</h3>
                   <p className="text-sm leading-relaxed text-tinta-suave font-medium">{p.texto}</p>

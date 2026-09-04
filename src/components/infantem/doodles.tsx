@@ -279,3 +279,286 @@ export function FilaCaritas({
     </div>
   );
 }
+
+/* ==========================================================================
+ * ICONOS ESTILO FLYER / STICKER ESCOLAR INFANTEM
+ * Ilustraciones con trazo de tinta negra marcada, colores vibrantes
+ * y curvas divertidas hechas a mano como en los avisos oficiales de Infantem.
+ * ========================================================================== */
+
+/** 💡 Bombillo de ideas / foco con filamento y brillo */
+export function DoodleBombillo({ className = "w-12 h-12", style }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 70 90" fill="none" className={`inline-block align-middle ${className}`} style={style} aria-hidden="true">
+      {/* Cuerpo del bombillo */}
+      <path
+        d="M20 52 C 14 44 10 35 12 24 C 14.5 11 26 4 37 4 C 49 4 58 13 58 25 C 58 35 54 44 48 52 L 46 62 L 22 62 Z"
+        fill="#facc15"
+      />
+      {/* Casquillo roscado */}
+      <rect x="23" y="62" width="22" height="12" rx="2" fill="#e2e8f0" />
+      <path d="M26 74 C 26 77 29 80 34 80 C 39 80 42 77 42 74 Z" fill="#94a3b8" />
+      {/* Contorno y filamento estilo cómic */}
+      <g stroke="#242234" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 54 C 15 46 11 36 13 25 C 15.5 12 26 5 37 5 C 48.5 5 57 14 57 25.5 C 57 36 53 46 47 54 L 45 63 L 23 63 Z" />
+        {/* Filamento */}
+        <path d="M28 35 L 31 22 Q 34 18 37 22 Q 40 18 43 22 L 40 35" />
+        <path d="M28 35 L 28 50" />
+        <path d="M40 35 L 40 50" />
+        {/* Roscas */}
+        <path d="M23 68 H 45" />
+        <path d="M24 74 H 44" />
+        <path d="M28 74 C 28 78 30 81 34 81 C 38 81 40 78 40 74" />
+      </g>
+      {/* Brillo */}
+      <path d="M19 22 C 20 14 26 10 32 8" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** ✏️ Lápiz escolar amarillo con punta afilada y borrador rosa */
+export function DoodleLapiz({ className = "w-12 h-12", style }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 70 120" fill="none" className={`inline-block align-middle ${className}`} style={style} aria-hidden="true">
+      <g transform="rotate(-32 35 60)">
+        {/* Cuerpo amarillo */}
+        <rect x="22" y="26" width="26" height="60" fill="#facc15" />
+        {/* Borrador rosa */}
+        <rect x="22" y="86" width="26" height="15" rx="5" fill="#fb7185" />
+        {/* Casquillo metálico */}
+        <rect x="22" y="82" width="26" height="6" fill="#e2e8f0" />
+        {/* Madera afilada */}
+        <polygon points="22,26 48,26 35,4" fill="#fed7aa" />
+        {/* Grafito negro */}
+        <polygon points="30,13 40,13 35,4" fill="#242234" />
+
+        {/* Trazos negros marcados */}
+        <g stroke="#242234" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 86 V 26 L 35 4 L 48 26 V 86 C 48 92 48 99 35 99 C 22 99 22 92 22 86 Z" />
+          <line x1="30" y1="26" x2="30" y2="82" />
+          <line x1="40" y1="26" x2="40" y2="82" />
+          {/* Ondita de madera */}
+          <path d="M22 26 Q 26 23 30 26 Q 35 23 40 26 Q 44 23 48 26" fill="none" />
+          <line x1="22" y1="82" x2="48" y2="82" />
+          <line x1="22" y1="88" x2="48" y2="88" />
+        </g>
+      </g>
+    </svg>
+  );
+}
+
+/** 📢 Megáfono / Altavoz con ondas sonoras */
+export function DoodleMegafono({ className = "w-14 h-14", style }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 100 80" fill="none" className={`inline-block align-middle ${className}`} style={style} aria-hidden="true">
+      {/* Cono coral/salmón */}
+      <path d="M26 34 L 58 18 C 62 16 66 18 66 22 V 54 C 66 58 62 60 58 58 L 26 44 Z" fill="#fb7185" />
+      {/* Borde frontal */}
+      <ellipse cx="66" cy="38" rx="5" ry="19" fill="#fed7aa" />
+      {/* Boquilla */}
+      <rect x="15" y="32" width="12" height="14" rx="3" fill="#facc15" />
+      {/* Mango */}
+      <path d="M36 42 L 32 64 C 31 67 34 70 38 70 C 41 70 43 67 43 64 L 44 46" fill="#f8fafc" />
+
+      {/* Contornos negros */}
+      <g stroke="#242234" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M15 32 H 26 V 46 H 15 Z" />
+        <path d="M26 34 L 58 18 C 61 16.5 66 18 66 22 V 54 C 66 58 61 59.5 58 58 L 26 44" />
+        <ellipse cx="66" cy="38" rx="5" ry="19" />
+        <path d="M36 42 L 32 64 C 31 67 34 70 38 70 C 41 70 43 67 43 64 L 44 46" />
+        {/* Ondas de sonido */}
+        <path d="M78 24 Q 86 38 78 52" />
+        <path d="M86 16 Q 96 38 86 60" />
+        <path d="M75 14 L 80 10" />
+        <path d="M75 62 L 80 66" />
+      </g>
+    </svg>
+  );
+}
+
+/** 📅 Calendario / libreta escolar con anillas y fechas */
+export function DoodleCalendario({ className = "w-14 h-14", style }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 90 90" fill="none" className={`inline-block align-middle ${className}`} style={style} aria-hidden="true">
+      <g transform="rotate(7 45 45)">
+        {/* Hoja de fondo */}
+        <rect x="18" y="20" width="58" height="60" rx="6" fill="#f8fafc" stroke="#242234" strokeWidth="2.8" />
+        {/* Portada verde mint */}
+        <rect x="14" y="24" width="58" height="58" rx="6" fill="#34d399" />
+
+        {/* Trazos negros */}
+        <g stroke="#242234" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="14" y="24" width="58" height="58" rx="6" />
+          <line x1="14" y1="39" x2="72" y2="39" />
+          {/* Cuadrícula de marcas "X" */}
+          <path d="M22 48 L 28 54 M 28 48 L 22 54" />
+          <path d="M38 48 L 44 54 M 44 48 L 38 54" />
+          <path d="M54 48 L 60 54 M 60 48 L 54 54" />
+          <path d="M22 62 L 28 68 M 28 62 L 22 68" />
+          <path d="M38 62 L 44 68 M 44 62 L 38 68" />
+          <path d="M54 62 L 60 68 M 60 62 L 54 68" />
+
+          {/* Anillas espirales */}
+          <path d="M23 16 V 28" strokeWidth="3.5" />
+          <path d="M37 16 V 28" strokeWidth="3.5" />
+          <path d="M51 16 V 28" strokeWidth="3.5" />
+          <path d="M63 16 V 28" strokeWidth="3.5" />
+        </g>
+      </g>
+    </svg>
+  );
+}
+
+/** 🔍 Lupa de explorador con lente celeste y reflejo */
+export function DoodleLupa({ className = "w-14 h-14", style }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 85 85" fill="none" className={`inline-block align-middle ${className}`} style={style} aria-hidden="true">
+      <g transform="rotate(-15 42 42)">
+        {/* Cristal celeste */}
+        <circle cx="36" cy="36" r="22" fill="#93c5fd" />
+        {/* Reflejo estilo zigzag */}
+        <path d="M26 28 L 44 28 L 30 46 L 46 46" stroke="#ffffff" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+
+        {/* Marco y mango */}
+        <g stroke="#242234" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="36" cy="36" r="22" />
+          <rect x="49" y="49" width="10" height="24" rx="4" fill="#facc15" transform="rotate(-45 49 49)" />
+          <line x1="48" y1="48" x2="54" y2="54" strokeWidth="4" />
+        </g>
+      </g>
+    </svg>
+  );
+}
+
+/** ⭐ Estrella gordita y tierna con relleno amarillo y trazo negro */
+export function DoodleEstrella({ className = "w-12 h-12", style }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 70 70" fill="none" className={`inline-block align-middle ${className}`} style={style} aria-hidden="true">
+      <path
+        d="M35 7 C 37.5 17.5 42.5 21.5 53 24.5 C 44.5 32 43.5 38.5 47.5 49 C 39 44.5 33 46.5 26.5 53 C 27.5 41.5 23.5 36 15 32.5 C 24.5 27.5 27.5 20.5 35 7 Z"
+        fill="#facc15"
+      />
+      <path
+        d="M35 7 C 37.5 17.5 42.5 21.5 53 24.5 C 44.5 32 43.5 38.5 47.5 49 C 39 44.5 33 46.5 26.5 53 C 27.5 41.5 23.5 36 15 32.5 C 24.5 27.5 27.5 20.5 35 7 Z"
+        stroke="#242234"
+        strokeWidth="3.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M30 18 C 32 22 34 23 38 24" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** ✉️ Sobre de carta rosa con clip sujetador */
+export function DoodleCarta({ className = "w-14 h-14", style }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 90 75" fill="none" className={`inline-block align-middle ${className}`} style={style} aria-hidden="true">
+      <g transform="rotate(-8 45 37)">
+        {/* Cuerpo del sobre */}
+        <rect x="12" y="16" width="66" height="46" rx="5" fill="#fda4af" />
+        <path d="M12 16 L 45 42 L 78 16 Z" fill="#fb7185" />
+
+        {/* Contorno */}
+        <g stroke="#242234" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="12" y="16" width="66" height="46" rx="5" />
+          <path d="M12 16 L 45 42 L 78 16" />
+          <path d="M12 62 L 34 40" />
+          <path d="M78 62 L 56 40" />
+        </g>
+
+        {/* Clip negro sujetador */}
+        <path
+          d="M58 8 V 30 C 58 35 66 35 66 30 V 14 C 66 6 52 6 52 14 V 32"
+          stroke="#242234"
+          strokeWidth="3.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+      </g>
+    </svg>
+  );
+}
+
+/** 📋 Tabla con hoja de notas y ondas de escritura */
+export function DoodleTabla({ className = "w-14 h-14", style }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 80 95" fill="none" className={`inline-block align-middle ${className}`} style={style} aria-hidden="true">
+      <g transform="rotate(-6 40 47)">
+        {/* Base verde */}
+        <rect x="12" y="14" width="56" height="72" rx="7" fill="#10b981" />
+        {/* Hoja blanca */}
+        <rect x="18" y="22" width="44" height="58" rx="4" fill="#ffffff" />
+
+        {/* Trazos */}
+        <g stroke="#242234" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="12" y="14" width="56" height="72" rx="7" />
+          {/* Clip superior */}
+          <rect x="28" y="8" width="24" height="12" rx="3" fill="#cbd5e1" />
+          <circle cx="40" cy="14" r="2.5" fill="#242234" />
+          {/* Ondas verdes simulando escritura */}
+          <path d="M24 36 Q 30 32 36 36 T 48 36 T 56 36" stroke="#10b981" strokeWidth="2.8" />
+          <path d="M24 46 Q 30 42 36 46 T 48 46 T 56 46" stroke="#10b981" strokeWidth="2.8" />
+          <path d="M24 56 Q 30 52 36 56 T 48 56 T 56 56" stroke="#10b981" strokeWidth="2.8" />
+          <path d="M24 66 Q 30 62 36 66 T 48 66" stroke="#10b981" strokeWidth="2.8" />
+        </g>
+      </g>
+    </svg>
+  );
+}
+
+/** ☀️ Sol radiante estilo cómic con relleno amarillo y trazo negro */
+export function DoodleSol({ className = "w-14 h-14", style }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 80 80" fill="none" className={`inline-block align-middle ${className}`} style={style} aria-hidden="true">
+      <circle cx="40" cy="40" r="18" fill="#facc15" />
+      <g stroke="#242234" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="40" cy="40" r="18" />
+        <path d="M40 8 V 16" />
+        <path d="M40 64 V 72" />
+        <path d="M8 40 H 16" />
+        <path d="M64 40 H 72" />
+        <path d="M17 17 L 23 23" />
+        <path d="M57 57 L 63 63" />
+        <path d="M63 17 L 57 23" />
+        <path d="M23 57 L 17 63" />
+      </g>
+    </svg>
+  );
+}
+
+/** ☁️ Nube tierna con relleno celeste pastel y trazo negro */
+export function DoodleNube({ className = "w-16 h-12", style }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 100 60" fill="none" className={`inline-block align-middle ${className}`} style={style} aria-hidden="true">
+      <path
+        d="M26 48 C 14 48 8 39 12 30 C 7 23 15 13 23 16 C 27 7 40 5 45 13 C 51 5 65 7 67 15 C 76 11 87 16 85 26 C 94 28 95 40 86 44 C 82 48 73 48 68 48 Z"
+        fill="#bae6fd"
+      />
+      <path
+        d="M26 48 C 14 48 8 39 12 30 C 7 23 15 13 23 16 C 27 7 40 5 45 13 C 51 5 65 7 67 15 C 76 11 87 16 85 26 C 94 28 95 40 86 44 C 82 48 73 48 68 48 Z"
+        stroke="#242234"
+        strokeWidth="3.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M30 32 C 38 28 50 30 56 34" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** ✨ Chispitas / Destellitos de 4 puntas */
+export function DoodleChispa({ className = "w-6 h-6", style, color = "#facc15" }: DoodleProps & { color?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" className={`inline-block align-middle ${className}`} style={style} aria-hidden="true">
+      <path
+        d="M16 2 C 17 9 20 12 28 16 C 20 19 17 22 16 30 C 15 22 12 19 4 16 C 12 12 15 9 16 2 Z"
+        fill={color}
+        stroke="#242234"
+        strokeWidth="2.4"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

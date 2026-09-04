@@ -1,33 +1,79 @@
 import Image from "next/image";
 import { ArrowDown, Sparkles } from "lucide-react";
 import { Revelar } from "./revelar";
-import { FilaCaritas, SelloGiratorio, Sol, Destello, Espiral, Nube, Flecha } from "./doodles";
+import { FilaCaritas, SelloGiratorio, Flecha } from "./doodles";
 import { IconoWhatsApp } from "./iconos";
 import { sitio } from "@/lib/contenido";
 
 export function Hero() {
   return (
     <section id="inicio" className="relative overflow-hidden pt-[110px] md:pt-[130px] pb-16 md:pb-24">
-      {/* manchas de color de fondo */}
-      <div aria-hidden="true" className="absolute inset-0 -z-10">
+      {/* manchas de color e imágenes PNG de stickers escolares con fondo transparente */}
+      <div aria-hidden="true" className="absolute inset-0 -z-10 pointer-events-none select-none">
         <div className="absolute -top-24 -left-24 w-80 h-80 bg-amarillo-claro blob" />
         <div className="absolute top-40 -right-32 w-96 h-96 bg-rosa-claro blob" />
         <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-azul-claro blob" />
-        <Sol className="absolute top-24 left-[6%] w-12 text-amarillo anim-flotar" style={{ ["--rot" as string]: "8deg" }} />
-        <Destello className="absolute top-[46%] left-[3%] w-7 text-rosa anim-flotar hidden sm:block" style={{ ["--delay" as string]: "1.2s" }} />
-        <Espiral className="absolute bottom-16 left-[10%] w-9 text-verde anim-flotar hidden md:block" style={{ ["--delay" as string]: "0.6s", ["--rot" as string]: "-10deg" }} />
-        <Nube className="absolute top-32 right-[4%] w-20 text-azul anim-flotar hidden md:block" style={{ ["--delay" as string]: "0.9s" }} />
+
+        {/* 1. Superior izquierda: Bombillo de ideas */}
+        <div
+          className="absolute top-28 sm:top-20 left-[3%] sm:left-[5%] anim-flotar w-11 sm:w-14 md:w-16 aspect-square"
+          style={{ ["--rot" as string]: "8deg", ["--delay" as string]: "0s" }}
+        >
+          <Image
+            src="/img/doodle-bombillo.png"
+            alt="Bombillo sticker"
+            fill
+            sizes="(max-width: 768px) 44px, 64px"
+            className="object-contain drop-shadow-[0_6px_12px_rgba(250,204,21,0.3)]"
+          />
+        </div>
+
+        {/* 2. Inferior izquierda: Lápiz escolar */}
+        <div
+          className="absolute bottom-10 sm:bottom-14 left-[4%] sm:left-[6%] anim-flotar w-12 sm:w-16 md:w-20 aspect-square"
+          style={{ ["--delay" as string]: "0.6s", ["--rot" as string]: "-6deg" }}
+        >
+          <Image
+            src="/img/doodle-lapiz.png"
+            alt="Lápiz escolar sticker"
+            fill
+            sizes="(max-width: 768px) 48px, 80px"
+            className="object-contain drop-shadow-[0_6px_12px_rgba(250,204,21,0.35)]"
+          />
+        </div>
+
+        {/* 3. Superior derecha: Calendario / libreta escolar (solo visible en tablets y PC) */}
+        <div
+          className="hidden sm:block absolute sm:top-24 right-[4%] sm:right-[7%] anim-flotar sm:w-16 md:w-20 aspect-square"
+          style={{ ["--delay" as string]: "0.9s", ["--rot" as string]: "6deg" }}
+        >
+          <Image
+            src="/img/doodle-calendario.png"
+            alt="Calendario escolar sticker"
+            fill
+            sizes="(max-width: 768px) 48px, 80px"
+            className="object-contain drop-shadow-[0_6px_12px_rgba(52,211,153,0.3)]"
+          />
+        </div>
+
+        {/* 4. Lateral derecha: Megáfono (en móvil sube a la esquina superior derecha) */}
+        <div
+          className="absolute top-24 sm:top-[50%] right-[3%] sm:right-[4%] lg:-right-2 anim-flotar w-11 sm:w-16 md:w-20 aspect-square"
+          style={{ ["--delay" as string]: "0.4s", ["--rot" as string]: "-8deg" }}
+        >
+          <Image
+            src="/img/doodle-megafono.png"
+            alt="Megáfono sticker"
+            fill
+            sizes="(max-width: 768px) 44px, 80px"
+            className="object-contain drop-shadow-[0_6px_12px_rgba(251,113,133,0.3)]"
+          />
+        </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-8 items-center">
         {/* ── columna de texto ── */}
         <div className="relative z-10 text-center lg:text-left">
-          <Revelar>
-            <span className="inline-flex items-center gap-2 bg-white/80 pespunte rounded-full px-4 py-2 text-xs sm:text-sm font-bold text-tinta/80 -rotate-1">
-              <Sparkles className="w-4 h-4 text-naranja" aria-hidden="true" />
-              Guardería y preescolar · República Dominicana
-            </span>
-          </Revelar>
 
           <Revelar retraso={0.08}>
             <h1 className="font-display font-bold text-[2.6rem] leading-[1.06] sm:text-6xl xl:text-[4.2rem] mt-6 mb-6">
@@ -77,12 +123,14 @@ export function Hero() {
           </Revelar>
 
           <Revelar retraso={0.32}>
-            <div className="flex items-center justify-center lg:justify-start gap-4 mt-9">
-              <FilaCaritas className="w-8" color="#3e3a52" />
-              <p className="text-sm font-semibold text-tinta-suave text-left">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 mt-9">
+              <p className="order-1 sm:order-2 text-sm font-semibold text-tinta-suave text-center sm:text-left">
                 Más de <span className="text-tinta font-extrabold">3,000 familias</span> nos acompañan
                 <span className="block font-hand text-lg text-tinta/60 -mt-0.5">síguenos en Instagram, subimos alegría todos los días</span>
               </p>
+              <div className="order-2 sm:order-1 flex justify-center">
+                <FilaCaritas className="w-8" color="#3e3a52" />
+              </div>
             </div>
           </Revelar>
         </div>
@@ -111,11 +159,11 @@ export function Hero() {
               <SelloGiratorio className="w-24 h-24 sm:w-32 sm:h-32" />
             </div>
 
-            {/* notita pegada con cinta */}
+            {/* notita pegada con cinta 
             <div className="absolute -right-2 sm:-right-8 top-8 rotate-6 bg-white rounded-lg px-4 py-3 shadow-md pespunte">
               <p className="font-hand text-xl leading-none text-rosa">¡viernes de agua!</p>
               <p className="text-[0.68rem] font-bold text-tinta-suave mt-1">todas las semanas hay algo especial</p>
-            </div>
+            </div>*/}
 
             {/* flecha de dibujo animado hacia el CTA */}
             <Flecha className="absolute -bottom-10 right-10 w-16 text-tinta/50 -rotate-[24deg] hidden lg:block" />

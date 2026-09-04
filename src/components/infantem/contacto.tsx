@@ -1,11 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, Clock, MapPin, Send, Loader2, PartyPopper } from "lucide-react";
+import { Send, Loader2, PartyPopper } from "lucide-react";
 import { toast } from "sonner";
 import { Revelar, TituloSeccion } from "./revelar";
 import { sitio } from "@/lib/contenido";
-import { IconoWhatsApp, IconoInstagram } from "./iconos";
+import {
+  IconoTelefonoDoodle,
+  IconoWhatsAppDoodle,
+  IconoInstagramDoodle,
+  IconoHorarioDoodle,
+  IconoUbicacionDoodle,
+} from "./iconos";
 import { SelloGiratorio } from "./doodles";
 
 interface Formulario {
@@ -85,23 +91,27 @@ export function Contacto() {
               </p>
 
               <ul className="space-y-4">
-                {sitio.telefonos.map((t) => (
-                  <li key={t.tel} className="flex items-center gap-4">
-                    <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-azul-claro text-azul shrink-0">
-                      <Phone className="w-5 h-5" />
-                    </span>
-                    <div>
-                      <p className="text-xs font-bold text-tinta-suave uppercase tracking-wide">Llámanos</p>
-                      <a href={`tel:${t.tel}`} className="font-display font-bold text-lg link-mano hover:text-azul">
-                        {t.display}
+                <li className="flex items-center gap-4 group">
+                  <span className="inline-flex items-center justify-center w-13 h-13 rounded-[1.25rem_0.6rem_1.25rem_0.6rem] bg-azul-claro text-azul border-2 border-dashed border-azul/40 -rotate-3 group-hover:rotate-0 transition-transform duration-200 shadow-sm shrink-0">
+                    <IconoTelefonoDoodle className="w-6 h-6" />
+                  </span>
+                  <div>
+                    <p className="text-xs font-bold text-tinta-suave uppercase tracking-wide">Llámanos</p>
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 font-display font-bold text-lg">
+                      <a href={`tel:${sitio.telefonos[0].tel}`} className="link-mano hover:text-azul">
+                        {sitio.telefonos[0].display}
+                      </a>
+                      <span className="text-tinta/30 font-sans font-normal">|</span>
+                      <a href={`tel:${sitio.telefonos[1].tel}`} className="link-mano hover:text-azul">
+                        {sitio.telefonos[1].display}
                       </a>
                     </div>
-                  </li>
-                ))}
+                  </div>
+                </li>
 
-                <li className="flex items-center gap-4">
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-verde-claro text-verde shrink-0">
-                    <IconoWhatsApp className="w-5 h-5" />
+                <li className="flex items-center gap-4 group">
+                  <span className="inline-flex items-center justify-center w-13 h-13 rounded-[0.6rem_1.25rem_0.6rem_1.25rem] bg-verde-claro text-verde border-2 border-dashed border-verde/40 rotate-2 group-hover:rotate-0 transition-transform duration-200 shadow-sm shrink-0">
+                    <IconoWhatsAppDoodle className="w-6 h-6" />
                   </span>
                   <div>
                     <p className="text-xs font-bold text-tinta-suave uppercase tracking-wide">WhatsApp</p>
@@ -116,9 +126,9 @@ export function Contacto() {
                   </div>
                 </li>
 
-                <li className="flex items-center gap-4">
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-rosa-claro text-rosa-fuerte shrink-0">
-                    <IconoInstagram className="w-5 h-5" />
+                <li className="flex items-center gap-4 group">
+                  <span className="inline-flex items-center justify-center w-13 h-13 rounded-[1.25rem_0.6rem_1.25rem_0.6rem] bg-rosa-claro text-rosa-fuerte border-2 border-dashed border-rosa-fuerte/35 -rotate-2 group-hover:rotate-0 transition-transform duration-200 shadow-sm shrink-0">
+                    <IconoInstagramDoodle className="w-6 h-6" />
                   </span>
                   <div className="min-w-0">
                     <p className="text-xs font-bold text-tinta-suave uppercase tracking-wide">Instagram</p>
@@ -133,9 +143,9 @@ export function Contacto() {
                   </div>
                 </li>
 
-                <li className="flex items-center gap-4">
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-amarillo-claro text-naranja shrink-0">
-                    <Clock className="w-5 h-5" />
+                <li className="flex items-center gap-4 group">
+                  <span className="inline-flex items-center justify-center w-13 h-13 rounded-[0.6rem_1.25rem_0.6rem_1.25rem] bg-amarillo-claro text-naranja border-2 border-dashed border-naranja/40 rotate-3 group-hover:rotate-0 transition-transform duration-200 shadow-sm shrink-0">
+                    <IconoHorarioDoodle className="w-6 h-6" />
                   </span>
                   <div>
                     <p className="text-xs font-bold text-tinta-suave uppercase tracking-wide">Horario</p>
@@ -143,9 +153,9 @@ export function Contacto() {
                   </div>
                 </li>
 
-                <li className="flex items-center gap-4">
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-naranja-claro text-naranja shrink-0">
-                    <MapPin className="w-5 h-5" />
+                <li className="flex items-center gap-4 group">
+                  <span className="inline-flex items-center justify-center w-13 h-13 rounded-[1.25rem_0.6rem_1.25rem_0.6rem] bg-naranja-claro text-naranja border-2 border-dashed border-naranja/40 -rotate-2 group-hover:rotate-0 transition-transform duration-200 shadow-sm shrink-0">
+                    <IconoUbicacionDoodle className="w-6 h-6" />
                   </span>
                   <div>
                     <p className="text-xs font-bold text-tinta-suave uppercase tracking-wide">Dónde estamos</p>
@@ -188,7 +198,7 @@ export function Contacto() {
                     minLength={2}
                     value={form.nombre}
                     onChange={actualizar("nombre")}
-                    placeholder="María Pérez"
+                    placeholder="María Rodriguez"
                     className={clasesInput}
                   />
                 </div>

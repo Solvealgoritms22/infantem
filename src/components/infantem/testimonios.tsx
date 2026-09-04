@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { Revelar, TituloSeccion } from "./revelar";
 import { testimonios } from "@/lib/contenido";
-import { Corazon } from "./doodles";
 
 const fondos: Record<string, string> = {
   rosa: "bg-rosa-claro",
@@ -8,10 +8,10 @@ const fondos: Record<string, string> = {
   verde: "bg-verde-claro",
 };
 
-const puntos: Record<string, string> = {
-  rosa: "text-rosa-fuerte",
-  azul: "text-azul",
-  verde: "text-verde",
+const pinIconos: Record<string, string> = {
+  rosa: "/img/pin-heart-3d.jpg",
+  azul: "/img/pin-star-3d.jpg",
+  verde: "/img/pin-clover-3d.jpg",
 };
 
 export function Testimonios() {
@@ -35,12 +35,19 @@ export function Testimonios() {
               <figure
                 className={`relative rounded-2xl ${fondos[t.color]} p-7 pt-9 ${t.rotacion > 0 ? "rotate-1" : "-rotate-1"} hover:rotate-0 transition-transform duration-300 shadow-[0_16px_36px_-18px_rgba(62,58,82,0.4)] h-full`}
               >
-                <span
-                  className={`absolute -top-5 left-6 w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm ${puntos[t.color]}`}
+                <div
+                  className="absolute -top-6 left-6 w-12 h-12 rounded-full overflow-hidden shadow-[0_8px_16px_-4px_rgba(62,58,82,0.3)] border-2 border-white ring-2 ring-black/5 bg-white anim-flotar"
+                  style={{ animationDelay: `${i * 0.4}s` }}
                   aria-hidden="true"
                 >
-                  <Corazon className="w-6 h-6 anim-latido" strokeWidth={3} />
-                </span>
+                  <Image
+                    src={pinIconos[t.color] || "/img/pin-heart-3d.jpg"}
+                    alt="Pin testimonio"
+                    fill
+                    sizes="48px"
+                    className="object-cover scale-110"
+                  />
+                </div>
                 <blockquote className="text-[0.95rem] leading-relaxed font-semibold text-tinta/90">
                   “{t.cita}”
                 </blockquote>

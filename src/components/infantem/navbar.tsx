@@ -54,12 +54,12 @@ export function Navbar() {
 
         <div className="flex items-center gap-3">
           <a
-            href={`tel:${sitio.telefonos[0].tel}`}
+            href={`tel:${sitio.telefonos[1].tel}`}
             className="hidden md:flex items-center gap-2 font-bold text-sm text-tinta/70 hover:text-verde transition-colors"
-            aria-label={`Llámanos al ${sitio.telefonos[0].display}`}
+            aria-label={`Llámanos al ${sitio.telefonos[1].display}`}
           >
             <Phone className="w-4 h-4" />
-            {sitio.telefonos[0].display}
+            {sitio.telefonos[1].display}
           </a>
           <a
             href="#contacto"
@@ -109,8 +109,8 @@ export function Navbar() {
           </li>
           <li className="mt-6 text-center">
             <p className="font-hand text-xl text-tinta-suave">llámanos, ¡te leemos enseguida!</p>
-            <a href={`tel:${sitio.telefonos[0].tel}`} className="font-display font-bold text-xl text-verde">
-              {sitio.telefonos[0].display}
+            <a href={`tel:${sitio.telefonos[1].tel}`} className="font-display font-bold text-xl text-verde">
+              {sitio.telefonos[1].display}
             </a>
           </li>
         </ul>
