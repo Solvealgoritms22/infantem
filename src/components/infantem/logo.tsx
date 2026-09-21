@@ -2,8 +2,7 @@ import { FilaCaritas } from "./doodles";
 
 /**
  * Wordmark "Infantem" recreado con las letras alternando los colores
- * oficiales del logo real (rosa → naranja → verde → azul) y un ligero
- * baile de rotación y línea base, tal como la marca original.
+ * de la marca actual: rosa para "In", verde para "fan" y azul para "tem".
  */
 export function Wordmark({
   className = "text-3xl",
@@ -13,7 +12,16 @@ export function Wordmark({
   conTilt?: boolean;
 }) {
   const letras = "Infantem".split("");
-  const paleta = ["#f06292", "#f7941d", "#7cb342", "#3fa9f5"];
+  const paleta = [
+    "#f06292", // I
+    "#f06292", // n
+    "#7cb342", // f
+    "#7cb342", // a
+    "#7cb342", // n
+    "#3fa9f5", // t
+    "#3fa9f5", // e
+    "#3fa9f5", // m
+  ];
 
   return (
     <span
@@ -27,7 +35,7 @@ export function Wordmark({
           aria-hidden="true"
           className="inline-block"
           style={{
-            color: paleta[i % 4],
+            color: paleta[i],
             transform: conTilt
               ? `rotate(${i % 2 === 0 ? -2.5 : 2.5}deg) translateY(${i % 2 === 0 ? 0 : 2}px)`
               : undefined,
